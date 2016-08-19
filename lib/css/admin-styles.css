@@ -1,0 +1,8 @@
+input[type="text"].url-upload-input {
+    width: 50%;
+}
+
+/*hide this input row in theme options (only used to persist current selected tab)*/
+tr.current-tab {
+    display: none;
+}

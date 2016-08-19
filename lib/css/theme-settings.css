@@ -1,0 +1,157 @@
+/*----------------------------------------------------------------------------------*/
+/*helpers*/
+/*----------------------------------------------------------------------------------*/
+
+.clear {
+    clear: both;
+    overflow: hidden;
+    visibility: hidden;
+    width: 0;
+    height: 0;
+    content: " "; /* 1 */
+    display: table; /* 2 */
+}
+
+/*----------------------------------------------------------------------------------*/
+/*messages*/
+/*----------------------------------------------------------------------------------*/
+
+.error {color:#CC0000;}
+
+/*----------------------------------------------------------------------------------*/
+/*inputs*/
+/*----------------------------------------------------------------------------------*/
+
+.media-upload-input {
+/*    margin-right: 3px !important;
+    margin-top: 3px;*/
+}
+
+/*----------------------------------------------------------------------------------*/
+/*tabs*/
+/*----------------------------------------------------------------------------------*/
+
+.onepix-settings-tabs {
+    margin-top: 20px;
+}
+
+.settings-tabs {
+    float: left;
+    width: 15%;
+    padding-right: 5%;
+}
+
+.settings-tabs-content {
+    position: relative;
+    float: left;
+    width: 80%;
+/*    prevent all fields from poplating 
+on page load to impliment page loader*/
+/*    display: none;*/
+}
+
+/*remove tab styling*/
+
+.onepix-settings-tabs {
+    font-family: inherit;
+    font-size: inherit;
+}
+
+.onepix-settings-tabs .ui-tabs-panel, ui-tabs-nav, .onepix-settings-tabs li, .onepix-settings-tabs .ui-widget-header,
+.onepix-settings-tabs .ui-widget-content, .onepix-settings-tabs li.ui-state-active, .ui-widget-content
+{
+    background: transparent !important;
+    border: 0 !important;
+    font-family: inherit !important;
+}
+
+.onepix-settings-tabs li.ui-state-default, 
+.onepix-settings-tabs li.ui-state-active,
+.ui-tabs .ui-tabs-nav li.ui-tabs-active
+  {
+    padding: 0 !important;
+    margin: 0.5em 0 !important;
+    float: none !important;
+    display: block;
+}
+
+.onepix-settings-tabs .ui-tabs-nav .ui-tabs-anchor
+ {
+    padding: 0.1em 0 !important;
+    border: none;
+    box-shadow: none !important;
+    float: none !important;
+    display: block;
+    padding: 0 !important;
+    margin: 0 !important;
+    outline: 0 !important;
+    text-decoration: none !important;
+}
+
+.onepix-settings-tabs .ui-tabs-nav li.ui-tabs-active
+{
+    text-decoration: underline !important;
+}
+
+
+.onepix-settings-tabs li {
+    border: 0 !important;
+}
+
+/*.ui-tabs .ui-tabs-nav li.ui-tabs-active {
+    margin-bottom: -1px;
+    padding-bottom: 1px;
+}*/
+
+.onepix-settings-tabs li a, .onepix-settings-tabs label, .onepix-settings-tabs h3, .onepix-settings-tabs th
+{
+    color:         inherit !important;
+    font-size:     inherit !important;
+    font-weight:    inherit;
+    font-family: inherit !important;
+}
+
+
+@media only screen and (max-width: 780px) {
+    
+    .settings-tabs {
+        float: none;
+        width: 100%;
+        clear: both;
+    }
+
+    .settings-tabs-content {
+        float: none;
+        width: 100%;
+        clear: both;
+    }
+    
+    .onepix-imgloader {
+        left: 45% !important;
+    }
+}
+
+/*----------------------------------------------------------------------------------*/
+/*page load animation (for tabbed content)*/
+/*----------------------------------------------------------------------------------*/
+
+.onepix-imgloader {
+    position: absolute;
+    top: 35%;
+    left: 35%;
+    z-index: 1000;
+}
+
+/*hide the second element in the loading container (first element is the leading img)*/
+.loading-container > .content {
+    filter:alpha(opacity=0);
+    -moz-opacity:0;
+    -khtml-opacity:0;
+    opacity:0;
+}
+
+.loading-container {
+    position: relative;
+/*    background: #fff;*/
+    min-height: 40px;
+}

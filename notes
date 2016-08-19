@@ -1,0 +1,52 @@
+line 105 in functions.php
+(// This overrites the default jquery)
+this was used to make the slider work - will not work with latest jquery
+
+login:
+admin
+f5z%hjUG9I5K)9#GR^BxECY4
+or
+benchung
+cdg165ls
+
+woocommerce:
+-------------------------------------------
+modified templates:
+shop
+archive-product.php
+product thumb
+content-product.php
+single product
+single-product.php
+content area for single product
+content-single-product.php
+cart
+(you must alter:)
+page.php
+product loop
+woocommerce>loop>loop-start.php
+(used to format the ul for foundation grid)
+when updating woocommerce, if the +/- buttons are missing, copy this file from the original woocommerce plugin location to the new one:
+woocommerce>assets>js>frontend>woocommerce.js
+featured image:
+-------------------------------------------
+-media query to set shrink lock for 
+featured image/slider is located:
+line 10 of mediaqueries.css
+entitled:
+/*shrinklock media query*/
+set this to the desired height of the featured area:
+.homeslider, full-width-img-home {
+    height: 500px;
+}
+masonry
+-------------------------------------------
+functions.php on line 393
+//this activates masonry to use it instead of css columns
+//later impliment this as brower feature detection or backend option
+$useMasonry = false;
+flexslider
+-------------------------------------------
+see:
+// ALLOW CAPTION CSS3 ANIMATION:
+in jquery.flexslider.js

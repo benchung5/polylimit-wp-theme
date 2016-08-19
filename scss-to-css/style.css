@@ -1,0 +1,76 @@
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/xampp\/htdocs\/wordpress2\/wp-content\/themes\/1pixel\/scss\/reset\.scss}line{font-family:\0000318}}
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline; }
+
+/* HTML5 display-role reset for older browsers */
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/xampp\/htdocs\/wordpress2\/wp-content\/themes\/1pixel\/scss\/reset\.scss}line{font-family:\0000328}}
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+  display: block; }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/xampp\/htdocs\/wordpress2\/wp-content\/themes\/1pixel\/scss\/reset\.scss}line{font-family:\0000331}}
+body {
+  line-height: 1; }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/xampp\/htdocs\/wordpress2\/wp-content\/themes\/1pixel\/scss\/reset\.scss}line{font-family:\0000334}}
+ol, ul {
+  list-style: none; }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/xampp\/htdocs\/wordpress2\/wp-content\/themes\/1pixel\/scss\/reset\.scss}line{font-family:\0000337}}
+blockquote, q {
+  quotes: none; }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/xampp\/htdocs\/wordpress2\/wp-content\/themes\/1pixel\/scss\/reset\.scss}line{font-family:\0000341}}
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: '';
+  content: none; }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/xampp\/htdocs\/wordpress2\/wp-content\/themes\/1pixel\/scss\/reset\.scss}line{font-family:\0000345}}
+table {
+  border-collapse: collapse;
+  border-spacing: 0; }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/xampp\/htdocs\/wordpress2\/wp-content\/themes\/1pixel\/scss\/style\.scss}line{font-family:\000034}}
+h1 {
+  color: red; }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/xampp\/htdocs\/wordpress2\/wp-content\/themes\/1pixel\/scss\/style\.scss}line{font-family:\000038}}
+body {
+  font-family: arial, verdana, sans-serif; }
+
+/*nesting*/
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/xampp\/htdocs\/wordpress2\/wp-content\/themes\/1pixel\/scss\/style\.scss}line{font-family:\0000314}}
+.entry-content p {
+  font-size: 12px;
+  line-height: 150%; }
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/xampp\/htdocs\/wordpress2\/wp-content\/themes\/1pixel\/scss\/style\.scss}line{font-family:\0000318}}
+.entry-content ul {
+  line-height: 150%; }
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/xampp\/htdocs\/wordpress2\/wp-content\/themes\/1pixel\/scss\/style\.scss}line{font-family:\0000321}}
+.entry-content a:link, .entry-content a:visited, .entry-content a:active {
+  text-decoration: none;
+  color: #ff6633; }
+
+/*mixins*/

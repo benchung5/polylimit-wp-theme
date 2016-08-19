@@ -1,0 +1,34 @@
+@import "_constants.scss";
+@import 'reset';
+
+h1 {
+color:$brand-color;
+}
+
+body { 
+font-family:$fonts;
+} 
+
+/*nesting*/
+.entry-content { 
+    p { 
+    font-size:12px;
+    line-height:150%;  
+    } 
+    ul { 
+    line-height:150%; 
+    }
+    a:link, a:visited, a:active { 
+    text-decoration:none;
+    color: #ff6633;
+    } 
+}
+
+
+/*mixins*/
+@mixin hide-text{
+    overflow:hidden;
+    text-indent:-9000px;
+    display:block;
+}
+

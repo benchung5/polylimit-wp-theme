@@ -1,0 +1,86 @@
+/*for fallback non supported css3 columns version*/
+
+.masonary-blog *{
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+/*used to size gutter by percentage. Also changes depending on having sidebar or not*/
+.no-sidebar .gutter-sizer { width: 3.3%; }
+.has-sidebar .gutter-sizer { width: 4.4%; }
+
+.masonry-entry {
+    background: #fff;
+/*  this setting is for sidebarless. It's overridded in theme settings for sidebar*/
+    width: 31%;
+    height: auto;
+    float: left;
+    border: 2px solid #333;
+    border-color: hsla(0, 0%, 0%, 0.5);
+    border: solid #EBEAEA;
+    border-width: 1px 1px 5px;
+    /*  set the gutter in the element attribute*/
+    margin-bottom: 30px;
+    /*  margin-right: 10px;*/
+    box-sizing: border-box; -moz-box-sizing: border-box;-webkit-box-sizing: border-box; 
+    display: inline-block;
+
+}
+
+.masonry-entry .masonry-details{
+  padding: 40px;
+}
+
+.loading-container.masonryloading {
+    min-height: 400px;
+}
+
+#masonry-loop {
+
+}
+
+#load-more {
+    text-align: center;
+}
+
+.masonry-thumbnail img.wp-post-image {
+    border: none !important;
+    box-shadow: none !important;
+    background: none repeat scroll 0 0 transparent !important;
+    padding: 0 !important;
+}
+
+/*for fallback css3 version*/
+.posts-wrapper {
+    -moz-column-count: 3;
+    -webkit-column-count: 3;
+    column-count: 3;
+    
+    -moz-column-gap: 2.2em;
+    -webkit-column-gap: 2.2em;
+    column-gap: 2.2em;
+}
+
+/*----------------------------------------------------------------------------------*/
+/*media queries*/
+/*----------------------------------------------------------------------------------*/
+
+@media only screen and (max-width: 1060px) {
+
+    .no-sidebar .masonry-entry {
+
+        width: 48.2% !important;
+        
+    }
+
+}
+
+@media only screen and (max-width: 630px) {
+    
+    .has-sidebar .masonry-entry, .no-sidebar .masonry-entry {
+
+        width: 100% !important;
+    }
+    
+}
