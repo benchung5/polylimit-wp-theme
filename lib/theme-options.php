@@ -96,7 +96,7 @@ if ( ! defined( 'ABSPATH' ) ) { exit; }
             "section" => "header_section",
             "id" => ONEPIX_SHORTNAME . "_logo_max_width",
             "title" => __('Logo Maximum Width', 'onepix_textdomain'),
-            "desc" => __('The Maximum width in pixels for your logo', 'onepix_textdomain'),
+            "desc" => __('The Maximum width in pixels for your logo in pixels', 'onepix_textdomain'),
             "type" => "text",
             "std" => "200",
             "class" => "numeric"
@@ -106,7 +106,7 @@ if ( ! defined( 'ABSPATH' ) ) { exit; }
             "section" => "header_section",
             "id" => ONEPIX_SHORTNAME . "_header_height",
             "title" => __('Header Height', 'onepix_textdomain'),
-            "desc" => __('The inner height of the site header', 'onepix_textdomain'),
+            "desc" => __('The inner height of the site header in pixels (+40px)', 'onepix_textdomain'),
             "type" => "text",
             "std" => "60",
             "class" => "numeric"
@@ -300,7 +300,19 @@ if ( ! defined( 'ABSPATH' ) ) { exit; }
             "type"    => "textarea",
             "class"   => "allhtml"
         );
-        
+
+        $options[] = array(
+            "section" => "featured_section",
+            "id" => ONEPIX_SHORTNAME . "_caption_margin",
+            "title" => __('Featured Caption Top Margin'),
+            "desc" => __('The featured caption distance from the top of the slider. ex: 33%', 'onepix_textdomain'),
+            "type" => "text",
+            "std" => "31%",
+            "class" => "allhtml"
+        );
+
+// Featured Image Settings
+
         $options[] = array(
             "section" => "featured_image_section",
             "id" => ONEPIX_SHORTNAME . "_featured_height",
@@ -311,16 +323,6 @@ if ( ! defined( 'ABSPATH' ) ) { exit; }
             "class" => "numeric"
         );
         
-        $options[] = array(
-            "section" => "featured_section",
-            "id" => ONEPIX_SHORTNAME . "_caption_margin",
-            "title" => __('Featured Caption Top Margin'),
-            "desc" => __('The featured caption distance from the top of the slider. ex: 33%', 'onepix_textdomain'),
-            "type" => "text",
-            "std" => "31%",
-            "class" => "allhtml"
-        );
-        
         $options[] = array(  
             "section" => "featured_image_section",  
             "id"      => ONEPIX_SHORTNAME . "_home_featured_img",  
@@ -329,6 +331,26 @@ if ( ! defined( 'ABSPATH' ) ) { exit; }
             "type"    => "img",  
             "std"     => "http://yoursite.com/imageurl",
             "class"   => "url"  
+        );
+
+        $options[] = array(  
+            "section" => "featured_image_section",  
+            "id"      => ONEPIX_SHORTNAME . "_home_foreground_img",  
+            "title"   => __( 'Foreground Image', 'onepix_textdomain' ),  
+            "desc"    => __( 'Optional featured foreground image (make sure it\'s a .png)', 'onepix_textdomain' ),  
+            "type"    => "img",  
+            "std"     => "http://yoursite.com/imageurl",
+            "class"   => "url"  
+        );
+
+        $options[] = array(
+            "section" => "featured_image_section",
+            "id" => ONEPIX_SHORTNAME . "_foreground_img_margin",
+            "title" => __('Foreground Image Top Margin'),
+            "desc" => __('The foreground image distance from the top of the featured area. ex: 20px', 'onepix_textdomain'),
+            "type" => "text",
+            "std" => "20px",
+            "class" => "allhtml"
         );
         
 // Featured Slider Settings 

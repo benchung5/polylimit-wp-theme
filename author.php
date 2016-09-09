@@ -29,7 +29,7 @@ get_header(); ?>
                 <div class="divider solid"></div>
             </div>
 
-            <?php get_template_part( 'temp', 'posts-1-col' ); ?>
+            <?php get_template_part('temp', 'posts-standard'); ?>
         
         </div>
 	<div id="recent-author-comments">

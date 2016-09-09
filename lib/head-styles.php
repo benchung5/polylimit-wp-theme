@@ -20,6 +20,9 @@ $html_bg = $onepix_option['onepix_html_background'];
 $html_bg_img = $onepix_option['onepix_html_background_img'];
 $caption_margin = $onepix_option['onepix_caption_margin'];
 $featured_height = $onepix_option['onepix_featured_height'];
+$header_height = $onepix_option['onepix_header_height'];
+$foreground_img_margin = $onepix_option['onepix_foreground_img_margin'];
+
 //get the width of the uploaded image
 //list($featured_img_width, $featured_img_height) = getimagesize($onepix_option['onepix_sitewide_img']);
 // if the file name has space in it, encode it properly
@@ -51,13 +54,13 @@ echo "<link href='" . $http . "://fonts.googleapis.com/css?family=" . $headtype 
     
     /*highlight*/
     .highlight { color: <?php echo $highlight_color ?> !important;}
+    .entry a:link, .entry a:visited { color: <?php echo $highlight_color ?>;}
     .content-block { border-top-color: <?php echo $highlight_color ?> !important; }
     
-    #giant-submenu-wrapper.depth-0 > ul > li > a:hover, #giant-submenu-wrapper.depth-0 > ul > li > ul#giant-sub-menu > li a:hover,
+    #content a:link, #content a:visited, #giant-submenu-wrapper.depth-0 > ul > li > a:hover, #giant-submenu-wrapper.depth-0 > ul > li > ul#giant-sub-menu > li a:hover,
     a:link:hover, a:visited:hover, #mobile-menu > ul.menu li a:hover, #sidebar .widget-area > ul > li > a:link:hover, 
     #sidebar .widget-area > ul > li > a:visited:hover, #nav-primary > .nav-wrapper > nav > div > ul > li > a:hover, 
-    #nav-primary-giant > .nav-wrapper > nav > div > ul > li > a:hover, #nav-primary-b > .nav-wrapper > nav > div > ul > li > a:hover,
-    #nav-primary-b ul.sub-menu > li > a:hover, #nav-primary ul.sub-menu > li > a:hover
+    #nav-primary-giant > .nav-wrapper > nav > div > ul > li > a:hover, #nav-primary-b > .nav-wrapper > nav > div > ul > li > a:hover
     { color: <?php echo $highlight_color ?>;}
     
     ::-moz-selection
@@ -92,12 +95,20 @@ echo "<link href='" . $http . "://fonts.googleapis.com/css?family=" . $headtype 
         min-width: <?php echo $featured_img_width ?>px;
     }
     
-    /*flexslider caption*/
-   .homeslider .flex-caption { top: <?php echo $caption_margin ?>; }
+    /*featured caption*/
+   .caption-container .text-container  { margin-top: <?php echo $caption_margin ?>; }
+
+   @media screen and (min-width: 1026px) {
+        .flex-caption { top: <?php echo $header_height ?>px; margin-top: 40px; }
+    }
     
     @media only screen and (max-width: 479px) {
     .homeslider .flex-caption { top:0; }
     .homeslider, .full-width-img-home, .homeslider .flex-viewport .slides > li { height: auto !important; }
+    }
+
+    .featured-img-front > img {
+        margin-top: <?php echo $foreground_img_margin ?>px;
     }
     
     /*html background img*/

@@ -17,6 +17,7 @@ function onepix_register_widgets() {
         register_widget( 'onepix_img_circles' );
         register_widget('onepix_fullwidth_container');
         register_widget('onepix_catch_phrase');
+        register_widget('onepix_spacer');
 }
 
 //Category/Recent Posts/Archives tabs for sidebar
@@ -248,8 +249,9 @@ class onepix_post_tabs extends WP_Widget {
                                 'order' => 'DESC'
                             );
                             ?>
-
+                            <ul>
                             <?php wp_get_archives($args); ?>
+                            </ul>
                         </div>
                     </div>
                 </div>
@@ -1417,6 +1419,36 @@ class onepix_catch_phrase extends WP_Widget {
                 </div>
             </div>
         </div>         
+                         
+        <?php
+        echo $after_widget;
+    }
+
+}
+
+class onepix_spacer extends WP_Widget {
+
+    //process our new widget
+    function onepix_spacer() {
+        $widget_ops = array('classname' => 'onepix_spacer', 'description' => __('Spacer for home page widgets', '1pixel'));
+        $this->__construct('onepix_spacer', __('One Pixel | Spacer', '1pixel'), $widget_ops);
+    }
+
+    //build our widget settings form
+    function form($instance) {
+        
+        ?> 
+        <h4>Widget Spacer</h4>
+        <?php
+        }
+
+    //display our widget
+    function widget($args, $instance) {
+        extract($args);
+        echo $before_widget;
+       ?>
+                        
+        <div class="onepix-widget-spacer"></div>         
                          
         <?php
         echo $after_widget;

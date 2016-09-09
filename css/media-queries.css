@@ -88,7 +88,7 @@
     /*flexslider & home featured image----------*/
     
     .full-width-img-home {
-        min-height: 400px !important;
+        /* min-height: 400px !important;*/
     }
     .homeslider .flex-caption {
         top: 0 !important;
@@ -107,17 +107,34 @@
         width: 100%;
         height: 100%;
     }
-    .homeslider .flex-caption .text-container {
-        position: absolute;
-        height: 100%;
-        max-width: 100%;
+    .caption-container .text-container {
+        float: none;
+        margin: 0 auto !important;
         /*        background: none repeat scroll 0 0 rgba(0, 0, 0, 0.7);*/
     }
+
+    .featured-img-front {
+        position: relative;
+        flex: none;
+    }
+
+    .flex-caption {
+        position:relative;
+    }
+
+    .featured-img-front > img {
+        float: none;
+        width: 630px;
+        margin: 0 auto !important;
+        display: block;
+    }
+
+    .homeslider, .full-width-img-home {
+        max-height: none !important;
+    }
+
     .fixed-caption .flex-caption-wrapper {
         margin: 0;
-    }
-    .text-container {
-        text-align: center;
     }
     .homeslider,
     full-width-img-home {
@@ -299,10 +316,6 @@
     .text-container {
         padding: 20px 20px;
     }
-    .text-container h1 {
-        font-size: 50px;
-        letter-spacing: 0;
-    }
     .full-width-img {
         /*    -webkit-background-size: inherit;
     -moz-background-size: cover;
@@ -387,6 +400,17 @@
     .featured-text {
         margin-top: 0;
     }
+
+    #homepage-subfeature-title {
+        font-size: 25px;
+        margin-top: auto;
+        margin-left: 8px;
+    }
+
+    .flex-caption .text-container {
+        text-align: center;
+        width: auto;
+    }
 }
 @media only screen and (max-width: 640px) {
     #footertop .medium-3 {
@@ -409,12 +433,6 @@
         position: absolute;
         top: -46px;
     }
-    /* flexslider*/
-    
-    .homeslider .flex-direction-nav {
-        display: none;
-    }
-    /* end flexslider*/
     
     ul.filterable-grid > li {
         width: 375px;
@@ -423,6 +441,7 @@
         width: 377px;
         margin: 0 auto;
     }
+
 }
 /*iPhone Landscape Width 	480px*/
 
@@ -433,9 +452,6 @@
     }*/
     /*    else just hide the slider images*/
     
-    .homeslider .flexslider .slides {
-        display: none;
-    }
     .full-width-img-home .flex-caption {
         position: relative !important;
     }
@@ -446,26 +462,9 @@
     full-width-img-home {
         height: auto !important;
     }
-    .homeslider .flex-caption-wrapper,
-    .homeslider .flex-caption,
-    .homeslider .caption-container {
-        position: relative !important;
-        height: 100%;
-    }
     .homeslider,
     .full-width-img-home {
         max-height: 100% !important;
-    }
-    .flex-caption {
-        background: url(../images/featured-img-mobile.jpg);
-        background-size: cover;
-    }
-    .homeslider .flex-caption .text-container,
-    .full-width-img-home .caption-container {
-        font-size: 12px;
-        font-weight: bold;
-        background: none repeat scroll 0 0 rgba(0, 0, 0, 0.7);
-        position: relative;
     }
     .large {
         font-size: 25px;

@@ -1,3 +1,15 @@
+
+differences in benchung site
+-------------------------------------------
+syles on line: 2107
+.text-container h1,
+#homepage-feature-title-wrapper h1
+
+media-queries.css line: 404
+.text-container h1, #homepage-feature-title-wrapper h1
+
+
+
 line 105 in functions.php
 (// This overrites the default jquery)
 this was used to make the slider work - will not work with latest jquery

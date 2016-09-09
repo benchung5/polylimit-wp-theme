@@ -31,7 +31,7 @@
         <footer id="footer" class="padding-bottom">
 		<div class="row">
                     <div class="medium-12 columns center media-center-med">
-                            <div class="copywright padding-columns">&copy; <a href="<?php bloginfo('url'); ?>/" title="<?php bloginfo('description'); ?>"><?php bloginfo( 'name' ); echo '&nbsp;' . date('Y'); ?></a>.  <?php _e('Website by'); ?> <a href="http://1pixeldesign.com/">1 Pixel Design</a></div>
+                            <div class="copywright padding-columns">&copy; <a href="<?php bloginfo('url'); ?>/" title="<?php bloginfo('description'); ?>"><?php bloginfo( 'name' ); echo '&nbsp;' . date('Y'); ?></a>.</div>
                     </div>
                 </div><!--.container-->
         </footer><!--#footer-->

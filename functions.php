@@ -127,7 +127,7 @@ function onepix_settings_scripts(){
         //  for theme settings
 	wp_enqueue_style('theme_settings_css', get_template_directory_uri() . '/lib/css/theme-settings.css');
         //loading animation script
-        wp_enqueue_script('canvasloader', 'http://heartcode-canvasloader.googlecode.com/files/heartcode-canvasloader-min-0.9.1.js', array('jquery'));
+        wp_enqueue_script('canvasloader', get_template_directory_uri() . '/lib/js/heartcode-canvasloader-min.js', array('jquery'));
         //enque jquery ui for setttings tabs
 
         //wp_enqueue_script('theme_js', get_template_directory_uri().'/js/theme.js', array('jquery', 'jquery-ui-tabs'));
@@ -455,7 +455,7 @@ if (!function_exists('onepix_load_scripts')) {
         }
         
 //      loading animation script
-        wp_enqueue_script('canvasloader', 'http://heartcode-canvasloader.googlecode.com/files/heartcode-canvasloader-min-0.9.1.js', array('jquery'), null, true);
+        wp_enqueue_script('canvasloader', get_template_directory_uri() . '/lib/js/heartcode-canvasloader-min.js', array('jquery'), null, true);
 
 //      sticky menu
         wp_enqueue_script('jquery_sticky', get_template_directory_uri() . '/js/jquery.sticky.min.js', array('jquery'), null, true);
@@ -513,7 +513,7 @@ if (!function_exists('onepix_load_scripts')) {
         wp_enqueue_style( 'foundation-style', get_template_directory_uri(). '/css/foundation.min.css' );
         wp_enqueue_style( 'font-icon-style', get_template_directory_uri(). '/css/font-awesome.min.css' );
         //flex slider
-        wp_enqueue_style( 'flexslider-css', get_template_directory_uri(). '/css/flexslider.min.css' );
+        wp_enqueue_style( 'flexslider-css', get_template_directory_uri(). '/css/flexslider.css' );
 
         
         
@@ -547,9 +547,9 @@ if ( function_exists( 'add_image_size' ) ) {
     //home slider image size
     add_image_size( 'home-slider', 1500, 1200, true );
     //masonry blog style thumb size
-    add_image_size( 'masonry-thumb', 670, 900, true );
+    // add_image_size( 'masonry-thumb', 670, 900, true );
     //single post image size - unlimited height
-    add_image_size( 'single-post', 688, 999, false );
+    // add_image_size( 'single-post', 688, 999, false );
     //single post image size
     add_image_size( 'square-thumb', 545, 545, true );
     //post widget thumb image size
@@ -1055,7 +1055,7 @@ function onepix_addto_bodyclass($classes) {
         
 ////    control page header class
         $pageheader_class = '';
-        if ((is_404() || 'onepix_' . SHOWCASE_NAME == get_post_type() || is_page_template( 'template-scrollnav.php' ) || is_page_template( 'template-showcase.php' ) || is_search()) && !is_single() || get_post_meta(get_the_ID(), 'onepix_page_header_type', true) == 'plain' || is_home()) {
+        if ((is_404() || 'onepix_' . SHOWCASE_NAME == get_post_type() || is_category() || is_tag() || is_author() || is_page_template( 'template-scrollnav.php' ) || is_single() || 'onepix_testimonial' == get_post_type() || is_page_template( 'template-blog.php' ) || is_page_template( 'template-showcase.php' ) || is_search()) || get_post_meta(get_the_ID(), 'onepix_page_header_type', true) == 'plain' || is_home()) {
             $header_type = "plain";
             $pageheader_class = 'no-pageheader';
         } elseif ((get_post_meta(get_the_ID(), 'onepix_page_header_type', true) == 'custom')) {

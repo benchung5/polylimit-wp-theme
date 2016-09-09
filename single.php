@@ -29,8 +29,15 @@ if ('onepix_' . SHOWCASE_NAME == get_post_type()) { ?>
                 <div <?php post_class('singlepost'); ?> id="single-post-<?php the_ID(); ?>">
 
                     <div class="entry">
+
+
+                        <h1 class="page-header single-header"><?php 
+                            the_title();
+                        ?>
+                        </h1>
+
                         
-                        <?php if (has_post_thumbnail() && (!get_post_meta(get_the_ID(), 'onepix_video_embed', true))) { 
+                        <?php if (1 == 2 && has_post_thumbnail() && (!get_post_meta(get_the_ID(), 'onepix_video_embed', true))) {
                             $full_image_url = wp_get_attachment_image_src(get_post_thumbnail_id($post->ID), 'full'); ?>
                             <div class="post-feature-img">
                             <a href="<?php echo $full_image_url[0] ?>" rel="<?php _e("bookmark", "1pixel"); ?>" title="<?php the_title(); ?>">
@@ -51,8 +58,6 @@ if ('onepix_' . SHOWCASE_NAME == get_post_type()) { ?>
                         <?php get_template_part('postmeta'); ?>
 
                         <?php the_content(); ?>
-                        
-                        <div class="spacer"></div>
                         
                         <?php
                         //for use in the loop, list 5 post titles related to first tag on current post

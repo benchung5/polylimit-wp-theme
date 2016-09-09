@@ -21,7 +21,7 @@
 	} ?></title>
 	<meta charset="<?php bloginfo( 'charset' ); ?>" />
 	<link rel="profile" href="http://gmpg.org/xfn/11" />
-	<meta name="viewport" content="width=device-width; initial-scale=1"/><?php /* Add "maximum-scale=1" to fix the Mobile Safari auto-zoom bug on orientation changes, but keep in mind that it will disable user-zooming completely. Bad for accessibility. */ ?>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0"><?php /* Add "maximum-scale=1" to fix the Mobile Safari auto-zoom bug on orientation changes, but keep in mind that it will disable user-zooming completely. Bad for accessibility. */ ?>
 	<link rel="icon" href="<?php bloginfo('template_url'); ?>/1pixel_favicon.ico" type="image/x-icon" />
 	<link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>" />
 	<link rel="alternate" type="application/rss+xml" title="<?php bloginfo( 'name' ); ?>" href="<?php bloginfo( 'rss2_url' ); ?>" />
@@ -54,7 +54,7 @@
         <?php if ($onepix_option['onepix_menu_type'] == 'Standard') { ?>
         <div id="header-main-wrapper">
              <div id="header-main" class="row">
-                     <div class="large-2 columns media-center-lg">
+                     <div class="header-cols header-col-left media-center-lg">
                          <div id="logo-header" style="max-width: <?php echo $onepix_option['onepix_logo_max_width'] ?>px;">
                              <a href="<?php echo home_url(); ?>" style="height: <?php echo $onepix_option['onepix_header_height'] ?>px;">
                              <span> <!--for vertical align-->
@@ -63,7 +63,7 @@
                              </a>
                          </div>
                      </div>
-                     <div class="large-10 columns">
+                     <div class="header-cols header-col-right">
                          <div id="header-right">
                              <?php if ($onepix_option['onepix_menu_type'] == 'Standard') { ?>
                                  <div id="nav-primary" class="nav">

@@ -38,7 +38,7 @@
 
 //          canvasloader code
                 var cl = new CanvasLoader('canvasloader-container');
-                cl.setColor('#4f4f4f'); // default is '#000000'
+                cl.setColor('#fb9e05'); // default is '#000000'
                 cl.setDiameter(45); // default is 40
                 cl.setDensity(75); // default is 40
                 cl.setRange(0.7); // default is 1.3
@@ -69,11 +69,6 @@
     
         $(window).load(function() {
             
-//            var sliderImgHeight = $('.flexslider ul.slides > li > a > img').height();
-//            alert(sliderImgHeight);
-//            $('.homeslider').css( "min-height", sliderImgHeight );
-    
-    
             $('.flexslider.homeslider').flexslider({
                 direction: dataSliderDirection,
                 slideshowSpeed: dataSlideshowSpeed,
@@ -133,6 +128,7 @@
     
 
         // mobile menu------------------------------------------------------------//
+
         $(document).ready(function() {
 
             // non dropdown select version mobile menu
@@ -150,7 +146,8 @@
             
         });
 
-// dropdown menu ------------------------------------------------------------//
+        // dropdown menu ------------------------------------------------------------//
+
         $(document).ready(function($) {
 
             // the stop is to make smooth animatins without the common problem of multiple queued animations 
@@ -187,6 +184,8 @@
                 horizontalScrolling: false
             });
         })
+
+        //sticky menu ----------------------------------------------------//
  
         $(document).ready(function () {
             
@@ -253,15 +252,18 @@
                 
         });
 
-        
-        
-
 
         //back to top --------------------------------------------------//
 
         $(function() {
+
             $(window).scroll(function() {
+                //important -> height: auto must be set or jquery scrollTop() won't work
                 if($(this).scrollTop() > 100) {
+
+                    //remove
+                    console.log($(this).scrollTop());
+
                     $('#toTop').fadeIn(3000);
                 } else {
                     $('#toTop').fadeOut();
@@ -279,6 +281,7 @@
                 });
             });
         });
+        
 
         //search submit button ---------------------------------------------//
 
