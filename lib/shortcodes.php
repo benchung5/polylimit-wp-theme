@@ -376,10 +376,10 @@ if($style == 'outline') {
 }
 }
 add_shortcode( 'button', 'onepix_shortcode_button' );
-//Dividers [divider style="double" class=myclass]
+//Dividers [divider style="thin" class=myclass]
 function onepix_shortcode_divider( $atts, $content = null ) {
 extract(shortcode_atts(array(
-    "style" => 'double',
+    "style" => 'thin',
     "class" => ''
 ), $atts));
 return '<div class="divider ' . $style . ' ' . $class . '"></div>';
@@ -408,11 +408,11 @@ function onepix_shortcode_highlight($atts, $content = null) {
     }
 }
 add_shortcode('highlight', 'onepix_shortcode_highlight');
-//Custom Headings [heading style=divider divider=large size=3 class=myclass]Heading With Divider[/heading] (size: 1, 2, 3 = h1, h2, h3)
+//Custom Headings [heading style=underline divider=thick size=3 class=myclass]Heading With Divider[/heading] (size: 1, 2, 3 = h1, h2, h3)
 function onepix_shortcode_heading( $atts, $content = null ) {
 extract(shortcode_atts(array(
     "style" => 'underline',
-    "divider" => 'dotted',
+    "divider" => 'thick',
     "size" => '3',
     "class" => ''
 ), $atts));
@@ -420,13 +420,6 @@ $output = '';
 if($style == "underline") {
     $output = '<div class="underline-divider-wrapper center ' . $class . '"><h' . $size . '>' . $content . '</h' . $size . '>
 <div class="divider ' . $divider . '"></div></div>';
-} elseif($style == "divider") {
-    $output = '<div class="heading-divider-wrapper ' . $class . '">
-<h' . $size . ' class="divider-heading">' . $content . '</h' . $size . '>
-<div class="divider-container">
-<div class="heading-divider divider ' . $divider . '"></div>
-</div>
-</div>';
 } elseif($style == "linethrough") {
         $output = '<div class="linethrough-header-container ' . $class . '">
 <h' . $size . ' class="linethrough-heading">' . $content . '</h' . $size . '>

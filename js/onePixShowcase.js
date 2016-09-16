@@ -242,7 +242,7 @@
                             // The easing effect when animating
                             easing: 'easeInOutCirc',
                             // Height adjustment set to dynamic
-                            adjustHeight: 'dynamic',
+                            //adjustHeight: 'dynamic',
                             //jquery-animate-css-rotate-scale.min.js is needed for "useScaling: true" to work
                             useScaling: false
                         },
@@ -260,6 +260,7 @@
 
             //set the showcase ul width to the wrapper width in pixels
             function update_containersize() {
+                console.log('size-updated');
                 $container.css("width", $('.showcase-container').width() + "px");
                 $container.css("height", "auto");
             }

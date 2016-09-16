@@ -207,6 +207,7 @@
     .showcase-header h1 {
         float: none;
         display: inline-block;
+        width: 100%;
     }
     .showcase-header .filter {
         display: inline-block;

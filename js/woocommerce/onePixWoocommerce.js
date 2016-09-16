@@ -2,8 +2,10 @@
 
     $.fn.onePixelWoocommerce = function (options) {
         $(document).ready(function () {
-            
-            if (onePixel_data.is_shop_page) {
+
+            if (onePixel_woo_data.is_shop_page) {
+
+                console.log('shop page');
                 
                 //product thumb hover
                 $('ul.products li .content-prod-wrapper').hover(function () {
@@ -40,8 +42,8 @@
         
         $(document).ready(function () {
             
-            $( '<a class="button" href="'+  onePixel_data.shop_url  +'">Reset</a>' ).insertAfter( ".price_slider_amount button[type='submit']" );
-//            alert(onePixel_data.shop_url);
+            $( '<a class="button" href="'+  onePixel_woo_data.shop_url  +'">Reset</a>' ).insertAfter( ".price_slider_amount button[type='submit']" );
+//            alert(onePixel_woo_data.shop_url);
 
 
         });

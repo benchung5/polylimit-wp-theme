@@ -40,7 +40,6 @@ $header_type = "standard";
 
 //default images
 define( 'DEFAULT_IMG_545', get_bloginfo('template_directory') . "/images/default-image-545x545.jpg" );
-define( 'DEFAULT_IMG_50', get_bloginfo('template_directory') . "/images/default-image-50x50.jpg" );
     
 /* ------------------------------------------------------------------------ *
  * add actions
@@ -127,7 +126,7 @@ function onepix_settings_scripts(){
         //  for theme settings
 	wp_enqueue_style('theme_settings_css', get_template_directory_uri() . '/lib/css/theme-settings.css');
         //loading animation script
-        wp_enqueue_script('canvasloader', get_template_directory_uri() . '/lib/js/heartcode-canvasloader-min.js', array('jquery'));
+        wp_enqueue_script('canvasloader', get_template_directory_uri() . '/js/heartcode-canvasloader-min.js', array('jquery'));
         //enque jquery ui for setttings tabs
 
         //wp_enqueue_script('theme_js', get_template_directory_uri().'/js/theme.js', array('jquery', 'jquery-ui-tabs'));
@@ -137,7 +136,7 @@ function onepix_settings_scripts(){
         wp_enqueue_script('theme_settings_js', get_template_directory_uri() . '/lib/js/theme-settings.js', array('jquery'));
         
         //localize script
-        //test access by: alert(onePixel_data.shop_page_url); (in your .js file)
+        //test access by: alert(themeSettings_data.current_tab_input); (in your .js file)
         $themeSettings_data = array(
             'current_tab_input' => __($onepix_option['onepix_current_tab'])
 //                        'current_tab_input' => 'foo'
@@ -328,12 +327,12 @@ function woocommerce_scripts() {
         }
 
         //localize script
-        //test access by: alert(onePixel_data.shop_page_url); (in your .js file)
-        $onePixel_data = array(
+        //test access by: alert(onep_onePixWoocommerce.shop_page_url); (in your .js file)
+        $onePixel_woo_data = array(
             'shop_url' => __($shop_page_url),
             'is_shop_page' => __($is_shop_page),
         );
-        wp_localize_script('onep_onePixWoocommerce', 'onePixel_data', $onePixel_data);
+        wp_localize_script('onep_onePixWoocommerce', 'onePixel_woo_data', $onePixel_woo_data);
 
 }
 
@@ -434,7 +433,7 @@ if (!function_exists('onepix_load_scripts')) {
             //this applies to both css and js version
             wp_enqueue_script('onep_onePixMasonry', get_template_directory_uri() . '/js/onePixMasonry.js', array('jquery'), null, true);
             //localize script
-            //test access by: alert(onePixel_data.shop_page_url); (in your .js file)
+            //test access by: alert(onep_onePixMasonry.has_sidebar); (in your .js file)
             $masonry_data = array(
                 'has_sidebar' => __($onepix_option['onepix_blog_sidebar']),
                 'use_masonry' => $useMasonry,
@@ -455,14 +454,14 @@ if (!function_exists('onepix_load_scripts')) {
         }
         
 //      loading animation script
-        wp_enqueue_script('canvasloader', get_template_directory_uri() . '/lib/js/heartcode-canvasloader-min.js', array('jquery'), null, true);
+        wp_enqueue_script('canvasloader', get_template_directory_uri() . '/js/heartcode-canvasloader-min.js', array('jquery'), null, true);
 
 //      sticky menu
         wp_enqueue_script('jquery_sticky', get_template_directory_uri() . '/js/jquery.sticky.min.js', array('jquery'), null, true);
         
         wp_enqueue_script('onep_jqmobile', get_template_directory_uri() . '/js/jquery.mobilemenu.js', array('jquery'), null, true);
         //localize script
-        //test access by: alert(onePixel_data.shop_page_url); (in your .js file)
+        //test access by: alert(mobilemenu_data.menutype); (in your .js file)
         $mobilemenu_data = array(
             'menutype' => __($onepix_option['onepix_menu_type'])
         );
@@ -1055,18 +1054,22 @@ function onepix_addto_bodyclass($classes) {
         
 ////    control page header class
         $pageheader_class = '';
-        if ((is_404() || 'onepix_' . SHOWCASE_NAME == get_post_type() || is_category() || is_tag() || is_author() || is_page_template( 'template-scrollnav.php' ) || is_single() || 'onepix_testimonial' == get_post_type() || is_page_template( 'template-blog.php' ) || is_page_template( 'template-showcase.php' ) || is_search()) || get_post_meta(get_the_ID(), 'onepix_page_header_type', true) == 'plain' || is_home()) {
-            $header_type = "plain";
-            $pageheader_class = 'no-pageheader';
+//        if (is_product() || is_shop() || is_product_category() || is_checkout() || is_cart()) {
+          if (1 == 2) {
+            $header_type = "standard";
+            $pageheader_class = 'standard-pageheader';
         } elseif ((get_post_meta(get_the_ID(), 'onepix_page_header_type', true) == 'custom')) {
             $header_type = "custom";
             $pageheader_class = 'custom-pageheader';
         } elseif (is_page_template( 'template-contact.php' ) && $onepix_option['onepix_has_googlemap']) {
             $header_type = "contact_page";
             $pageheader_class = 'contact-pageheader';
+        } elseif (is_front_page() || is_home()) {
+            $header_type = "plain";
+            $pageheader_class = 'home-pageheader';
         } else {
-            $header_type = "standard";
-            $pageheader_class = 'standard-pageheader';
+            $header_type = "plain";
+            $pageheader_class = 'no-pageheader';
         }
         
 ////    if internal page
@@ -1208,7 +1211,8 @@ if ($onepix_is_woo_active && !is_admin() && class_exists('Woocommerce')) {
 //wp_dequeue_script( 'jqueryui' );
         
         //enqueue custom woocommerce style
-        wp_enqueue_style( 'woocommerce-style', get_template_directory_uri(). '/css/woocommerce.min.css' );    
+        //wp_enqueue_style( 'woocommerce-style', get_template_directory_uri(). '/css/woocommerce.min.css' );
+        wp_enqueue_style( 'woocommerce-style', get_template_directory_uri(). '/css/woocommerce.css' );    
         
     }
 

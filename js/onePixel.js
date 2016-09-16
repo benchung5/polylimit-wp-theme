@@ -260,10 +260,6 @@
             $(window).scroll(function() {
                 //important -> height: auto must be set or jquery scrollTop() won't work
                 if($(this).scrollTop() > 100) {
-
-                    //remove
-                    console.log($(this).scrollTop());
-
                     $('#toTop').fadeIn(3000);
                 } else {
                     $('#toTop').fadeOut();

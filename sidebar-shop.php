@@ -10,7 +10,7 @@
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
  ?>
 	
-<div id="sidebar" class="large-3 columns">
+<div class="sidebar large-3 columns">
 
         <?php if ( ! dynamic_sidebar( 'Sidebar Shop' ) ) : ?><!-- Shop Sidebar --><?php endif ?>
         <?php //get_sidebar( 'shop' ); ?>

@@ -1,13 +1,12 @@
 <?php
 if ( ! defined( 'ABSPATH' ) ) { exit; }
 /* ------------------------------------------------------------------------ *
- * Widget: onepix_testimonial_slide
+ * Widgets
  * ------------------------------------------------------------------------ */ 
 add_action( 'widgets_init', 'onepix_register_widgets' );
 
 //register our widget
 function onepix_register_widgets() {
-	register_widget( 'onepix_testimonial_slide' );
         register_widget( 'onepix_recent_posts' );
         register_widget('onepix_post_tabs');
         register_widget( 'onepix_post_boxes' );
@@ -36,6 +35,7 @@ class onepix_post_tabs extends WP_Widget {
             'category_exclude' => '',            
             'post_type' => 'post',
             'number_posts' => '3',
+            'show_thumbnail' => 'true',
             'excerpt_length' => '20',
             'archive_type' => 'monthly',
             'archive_limit' => '5',
@@ -165,7 +165,7 @@ class onepix_post_tabs extends WP_Widget {
                             ));
                             ?>
 
-                            <ul class="">
+                            <ul class="recent-posts-tab-content">
                                 <?php if ($wpbp->have_posts()) : while ($wpbp->have_posts()) : $wpbp->the_post(); ?>
 
                                         <li class="onepix-recent-posts-item">
@@ -177,11 +177,7 @@ class onepix_post_tabs extends WP_Widget {
                                                 </div>
                                                 <div class="onepix-recent-posts-details withthumb">
                                                 <?php } else { ?>
-                                                    <div class = "onepix-recent-posts-thumb">
-                                                        <a href = "<?php the_permalink() ?>" rel = "<?php _e("bookmark", "1pixel"); ?>" title = "<?php _e("Permanent Link to", "1pixel"); ?> <?php the_title(); ?>">
-                                                            <img src="<?php echo DEFAULT_IMG_50; ?>" alt="placeholder" />
-                                                        </a>
-                                                    </div>
+
                                                     <div class="onepix-recent-posts-details nothumb">
                                                     <?php } ?>
                                                     <a class="onepix-recent-posts-title" rel="bookmark" title="Permalink to <?php echo get_the_title(); ?>" href="<?php the_permalink(); ?>"><?php echo onepix_shorten(get_the_title(), 42) ; ?></a>
@@ -230,7 +226,7 @@ class onepix_post_tabs extends WP_Widget {
                                 'exclude' => $category_exclude
                             );
                             ?>
-                            <ul>
+                            <ul class="categories-tab-content">
                                 <?php wp_list_categories($args); ?>
                             </ul>
                         </div>
@@ -249,7 +245,7 @@ class onepix_post_tabs extends WP_Widget {
                                 'order' => 'DESC'
                             );
                             ?>
-                            <ul>
+                            <ul class="archives-tab-content">
                             <?php wp_get_archives($args); ?>
                             </ul>
                         </div>
@@ -358,7 +354,7 @@ class onepix_recent_posts extends WP_Widget {
                 ));
         ?>
 
-        <div id="home-category-boxes">
+        <div class="onepix-recent-posts-widget">
                     <ul class="">
                         <?php if ($wpbp->have_posts()) : while ($wpbp->have_posts()) : $wpbp->the_post(); ?>
 
@@ -769,81 +765,6 @@ class onepix_woocat_boxes extends WP_Widget {
         <?php
         echo $after_widget;
     }
-}
-
-//onepix_testimonial_slide class
-class onepix_testimonial_slide extends WP_Widget {
-
-	//process our new widget
-	function onepix_testimonial_slide() {
-		$widget_ops = array('classname' => 'onepix_testimonial_slide', 'description' => __('Display Testimonials in Slider','1pixel') );
-		$this->__construct('onepix_testimonial_slide', __('One Pixel | Testimonial Slider Widget','1pixel'), $widget_ops);
-	}
- 
- 	//build our widget settings form
-	function form($instance) {
-		$defaults = array(
-            'title' => __('Testimonials','1pixel'), 
-            'number_posts' => '6' 
-            );
-            $instance = wp_parse_args( (array) $instance, $defaults );
-            $title = strip_tags($instance['title']);
-            $number_posts = strip_tags($instance['number_posts']);
-		?>
-			<p><?php _e('Title', '1pixel') ?>: <input class="widefat" name="<?php echo $this->get_field_name('title'); ?>" type="text" value="<?php echo esc_attr($title); ?>" /></p>
-			<p><?php _e('Number of Listings', '1pixel') ?>: <input name="<?php echo $this->get_field_name('number_posts'); ?>" type="text" value="<?php echo esc_attr($number_posts); ?>" size="2" maxlength="2" /></p>
-		<?php
-	}
- 
-  	//save our widget settings
-	function update($new_instance, $old_instance) {
-		$instance = $old_instance;
-		$instance['title'] = strip_tags(esc_attr($new_instance['title']));
-		$instance['number_posts'] = intval($new_instance['number_posts']);
- 
-		return $instance;
-	}
- 
- 	//display our widget
-	function widget($args, $instance) {
-		global $post;
-		extract($args);
-
-		echo $before_widget; 
-		$title = apply_filters('widget_title', $instance['title'] );
-		$number_posts = empty($instance['number_posts']) ? '&nbsp;' : apply_filters('widget_number_posts', $instance['number_posts']);
- 
-		if ( !empty( $title ) ) { echo $before_title . $title . $after_title; };
-                ?>
-                <div class="testimonials slider-widget flexslider-wrapper testimonial-slider">
-                    <div class="flexslider-widget">
-                        <ul class="slides">
-                            <?php
-
-                                $post_type = 'onepix_testimonial';
-                                //wp-query
-                                $the_query = new WP_Query( 
-                                        array(
-                                        'post_type' => $post_type,
-                                        //'posts_per_page' => $number_posts
-                                        '$post_count' => $number_posts
-                                        )
-                                        );
-                                // The Loop
-                                if ( have_posts() ) while ( $the_query->have_posts() ) : $the_query->the_post();?>
-
-                                    <li>
-                                        <p class="quote-sml"> <?php echo onepix_shorten(get_the_content(), 450) ; ?></p>
-                                        <p class="quote-sml author"><?php esc_attr(the_title()); ?> | <a href="<?php echo get_post_type_archive_link( $post_type ); ?>">view all</a></p>
-                                    </li>
-                            <?php endwhile; ?>
-                        </ul>
-                    </div>
-                </div>
-        <?php             
-		echo $after_widget;
-                
-       }
 }
 
 //Font Awesome Title for subfooter titles
